@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 notes.remove(position);
+                                Toast.makeText(getApplicationContext(),"Note deleted",Toast.LENGTH_SHORT).show();
                                 getChanges();
                             }
                         })
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getChanges() {
-        listView.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
         try {
             sharedPreferences.edit().putString("notes",ObjectSerializer.serialize(notes)).apply();
         } catch (Exception e) {

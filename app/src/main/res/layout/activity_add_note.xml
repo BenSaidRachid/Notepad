@@ -9,5 +9,6 @@
         android:layout_height="match_parent"
         android:background="#fff"
         android:gravity="top"
+        android:padding="10dp"
         />
 </LinearLayout>
